@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @Date 2022/2/1 19:04
  * @Version 1.0
  */
+//在CAS底层使用的getandaddint（）方法使用了自旋锁
 public class 自旋锁1 {
 
     //int 0

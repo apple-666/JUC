@@ -16,7 +16,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * C 执行完 调用A
  */
 
-public class CLock {
+public class Lock_Condition {
 
     public static void main(String[] args) {
         Data3 data3 = new Data3();

@@ -12,6 +12,7 @@ import java.util.concurrent.SynchronousQueue;
 /**
  * 同步队列
  */
+@SuppressWarnings("all")
 public class SynchronousQueueDemo {
     public static void main(String[] args) {
         BlockingQueue<String> synchronousQueue = new SynchronousQueue<>();

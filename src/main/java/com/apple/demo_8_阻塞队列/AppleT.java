@@ -10,10 +10,19 @@ import java.util.concurrent.TimeUnit;
  */
 public class AppleT {
     public static void main(String[] args) throws InterruptedException {
+        /**
+         * (重要）ArrayBlockingQueue：由数组结构组成的有界阻塞队列。
+         * (重要）LinkedBlockingQueue：由链表结构组成的有界（但大小默认值为Integer.MAX_VALUE）阻塞队列。
+         * PriorityBlockingQueue：支持优先级排序的无界阻塞队列。
+         * DelayQueue：使用优先级队列实现妁延迟无界阻塞队列。
+         * (重要）SynchronousQueue：不存储元素的阻塞队列。
+         * LinkedTransferQueue：由链表结构绒成的无界阻塞队列。
+         * LinkedBlockingDeque：由链表结构组成的双向阻塞队列。
+         */
 //        test1();
 //        test2();
-//        test3();
-        test4();
+        test3();
+//        test4();
 
     }
 
@@ -27,14 +36,16 @@ public class AppleT {
         System.out.println(blockingQueue.add("a"));
         System.out.println(blockingQueue.add("b"));
         System.out.println(blockingQueue.add("c"));
-        //抛出异常：java.lang.IllegalStateException: Queue full
 //        System.out.println(blockingQueue.add("d"));
+        //如果满了还add
+        //就会抛出异常：java.lang.IllegalStateException: Queue full
+
         System.out.println(blockingQueue.remove());
         System.out.println(blockingQueue.remove());
         System.out.println(blockingQueue.remove());
         //如果多移除一个
         //这也会造成 java.util.NoSuchElementException 抛出异常
-        System.out.println(blockingQueue.remove());
+//        System.out.println(blockingQueue.remove());
     }
     /**
      * 不抛出异常，有返回值
@@ -54,6 +65,8 @@ public class AppleT {
         System.out.println(blockingQueue.poll());
     }
     /**
+     * put没有返回值
+     * take有返回值
      * 等待 一直阻塞
      */
     public static void test3() throws InterruptedException {
@@ -74,7 +87,7 @@ public class AppleT {
         System.out.println(blockingQueue.take());
     }
     /**
-     * 等待 超时阻塞
+     * 等待 超时阻塞(可以设定超时时间）
      *  这种情况也会等待队列有位置 或者有产品 但是会超时结束
      */
     public static void test4() throws InterruptedException {

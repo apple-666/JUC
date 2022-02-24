@@ -19,6 +19,7 @@ public class Demo01 {
 //        ExecutorService threadPool = Executors.newCachedThreadPool(); //可伸缩的
 
         // 建议手动创建线程池
+        // corepoolsize maximumpoolsize keepalivetime timeunit.seconds, BlockinQueeu ThreadFactory 拒绝策略
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
                 4,
                 8,
@@ -26,6 +27,8 @@ public class Demo01 {
                 TimeUnit.SECONDS,
                 new LinkedBlockingDeque<>(2),
                 Executors.defaultThreadFactory(),
+
+//              拒绝策略
 //                new ThreadPoolExecutor.AbortPolicy()          //超出最大承载，就会抛出异常
 //                new ThreadPoolExecutor.CallerRunsPolicy()     //哪来的去哪里 main线程进行处理
                 new ThreadPoolExecutor.DiscardOldestPolicy()  //队列满了,丢掉异常，不会抛出异常。
